@@ -51,6 +51,7 @@ The dataset for the Thesis and dissertations search engine. This dataset contain
 4.7 Advanced search
       Advance search functionality will be available only for the users who logged in to the website.The advanced search has various fields where the users can filter their search results by book title, author. The advanced search is implemented similar to the main search function using the multi match function. 
 'multi_match' => ['query'=>$q,‘fields’[‘title‘,‘contributor_author‘,’degree_grantor’].The content can be found in the file adv.php. Here’s the advanced search page.
+
 ![advance](https://github.com/saikiransangam/Web-Programming/blob/master/images/advance%20search.png)
 
 4.8 SERP
@@ -102,9 +103,11 @@ Here you can see the favourites list.
 
 4.16 Voting
          In the summary page, we do have claims already added ones there we can vote for like or dislike the claim. This can be done by the both users and if they change their mind users can unlike or remove dislike buttons. I’ve created a like_dislike database table to save and show the number of like and dislikes for a particular claim.
+
 ![voting](https://github.com/saikiransangam/Web-Programming/blob/master/images/voting.png)
 
 4.17 Spell check
         Spell check is implemented  within the query. Here is it how i implemented “suggest” => [“mytermsuggestor” => [“text => $query_str, “term” => [ “field” => “title”]]. It’s do fuzzy search and finds out the most matched term with mytermsuggestor and then it shows the matching results in results page.
+        
 4.18 Speech-to-text API
       I have implemented the speech to text API functionality in my welcome, home and results pages. I’ve used HTML5 Speech Recognition API in order to implement this. The code content is available in my home..php and index.php and results.php.
