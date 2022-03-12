@@ -4,8 +4,7 @@
 
 Github : https://github.com/saikiransangam/Web-Programming
 
-
-2. Architecture
+### Architecture
 
 ![architecture](https://github.com/saikiransangam/Web-Programming/blob/master/images/architecture.png)
 
