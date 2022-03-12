@@ -2,7 +2,7 @@
 
 ## Project : Digital Library
 
-Github : https://github.com/saikiransangam/Web-Programming
+Github : https://github.com/saikiransangam/Digital-Library
 
 ### Architecture
 
