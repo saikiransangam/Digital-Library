@@ -4,143 +4,10 @@
 
 Github : https://github.com/saikiransangam/Web-Programming
 
-1. Milestone Accomplishments
-
-Milestone - 1
-
-
-Fulfilled
-#specification
-Description
-Yes
-1
-The website should provide a search box at the landing page. The searching function may not be working at this stage, and there should be a search button next to the search box. 
-Yes
-2
-Users should be able to register new accounts using email addresses.
-Yes
-3
-Passwords must be encrypted before storing in the database.
-Yes
-4
-Users cannot register duplicate accounts using the same email address, or phone number.
-Yes
-5
-Users should be able to log into your website using the accounts they registered.
-Yes
-6
-Users should be able to reset their passwords if they forget it.
-Yes
-7
-Users should be able to change their passwords if they want.
-Yes
-8
-The website should have a homepage for each user, where they can view their profiles, change passwords, and update information. 
-
-
-
-Milestone - 2
-
-
-Fulfilled
-#specification
-Description
-Yes
-1
-Users should be able to get a confirmation email containing a link to verify their email, OR they should receive a temporary password to login and change their passwords.
-Yes
-2
-The website has an “Advanced Search” function so users can search by specifying values for at least two fields simultaneously.
-Yes
-3
-The website should index at least 2000 “documents” (a document can be an ETD).
-Yes
-4
-Users can query the search engine without logging in.
-Yes
-5
-The search engine accepts a text query in the search box and returns results on the search engine result page (SERP). 
-Yes
-6
-Each item in SERP should link to a page for a document.
-Yes
-7
-The search engine should display the number of returned items on top of search results.
-Yes
-8
-The SERP should also contain a search box on the top
-
-
-
-Milestone - 3
-
-
-Fulfilled
-#specification
-Description
-Yes
-1
-The search engine should show the actual keywords after filtering on the SERP.
-Yes
-2
-The search engine can prevent XSS vulnerability by removing tags existing in the query and show the actual term (after sanitization) shown on the top of the SERP.
-Yes
-3
-A regular user should be able to insert a new entry (document) and search engines will index it.
-Yes
-4
-The search engine can return paginated results.
-Yes
-5
-The search engine should have a summary page for each thesis, the summary page should display at least the following 8 fields, when available: title, author, university, department, year, advisor, academic field (e.g., Computer Science), and abstract. Users can click each item on SERP and go to this summary page for each thesis.
-Yes
-6
-Users can switch back to the search results from the summary page.
-Yes
-7
-In the summary page, below the metadata, there is a discussion board, where users can input a claim extracted from the thesis and add comments. The layout looks like this:
-
-
-
-
-Milestone 4:
-
-
-Fulfilled
-#specification
-Description
-Yes
-1
-The search engine can highlight the matched terms on SERP.
-Yes
-2
-Users can delete items from their favorite list.
-Yes
-3
-Items in the favorite lists should be an ID followed by the title, year, and author linked to the summary page of the document.
-Yes
-4
-Logged in users can “vote” a claim discussion. Specifically,
-
- a. There should be a “vote” button for each claim on the document summary page. 
-
-b. A user who logged in can toggle the like button if he changes his mind.
-
-c. The total number of “up vote” minus the “down vote” is shown.
-Yes
-5
-The search engine implements speech-to-text.
-Yes
-6
-The search engine implements spell check.
-Yes
-7
-There is a button from which users can download the PDF from local storage from the summary page or from the SERP. For ETDs with multiple PDFs, the best solution is to zip them for download. But the basic requirement is to download one of them. 
-
-
-
 
 2. Architecture
+
+![architecture](https://github.com/saikiransangam/Web-Programming/blob/master/images/architecture.png)
 
 
                     
@@ -148,13 +15,14 @@ There is a button from which users can download the PDF from local storage from 
 
 3. Data
 
-             Professor gave us the dataset for the Thesis and dissertations search engine. This dataset contains  around 3990 folders.Each folder contains json files, text and pdf documents. We have to use a for loop to obtain the fields from each json file. Each json file contains various fields related to books like handle number, title, author, department, degree grantor, degree level, degree name, description_abstract, publisher, source url and etc..I have used curl command to index all the json documents data into the elastic search. The content of the file is in indexingETD.php. Then I run the view of the data, it will go into our elastic search.I have written a query for my search functionality when we searched for a word in a search engine the results should be displayed using multiple fields like title, degree name, author, abstract, publisher, type, degree level and contributor department. It will display the word which is there in all the above fields. Similarly I have implemented the advanced search here I have written a query which multi matches with the fields of title and author.
+The dataset for the Thesis and dissertations search engine. This dataset contains  around 3990 folders.Each folder contains json files, text and pdf documents. We have to use a for loop to obtain the fields from each json file. Each json file contains various fields related to books like handle number, title, author, department, degree grantor, degree level, degree name, description_abstract, publisher, source url and etc..I have used curl command to index all the json documents data into the elastic search. The content of the file is in indexingETD.php. Then I run the view of the data, it will go into our elastic search.I have written a query for my search functionality when we searched for a word in a search engine the results should be displayed using multiple fields like title, degree name, author, abstract, publisher, type, degree level and contributor department. It will display the word which is there in all the above fields. Similarly I have implemented the advanced search here I have written a query which multi matches with the fields of title and author.
 
 4. Implementations
 
 4.1 Search box and search button
      I have implemented a search box and search button using HTML and CSS. It’s the landing page of the website. You can find the code in the index.php. Here's the landing page  
 
+![Implementation]()
       
 4.2 Account registration
       I have used HTML and CSS to make an account registration form and we are storing account registration data in Mysql database.I used backend as PHP, I have done my project in PHP from scratch. In this form we have first name , last name, email, password, confirm password.the  Email is the unique id, with the same email users can’t register. If a user tries with the same email he gets a message that email already exists. password and confirm password need to be the same if not through error. password allows special characters, alphabets and numbers. Once we submit the register button, email will be sent for email verification and the user can login, without email verification an error message will be shown “your email has not verified”. I have used PHPMailer library(PHPMailer is a code library to send emails safely and easily via PHP code from a web server.)You can find the code in the register.php. Here’s the registration page.
